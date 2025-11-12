@@ -37,22 +37,29 @@ function initEventListeners(){
         });
     }
 
-    // Tipo selector: controlar visibilidade de Pessoa/Empresa
+    // Tipo selector: controlar visibilidade de Pessoa/Empresa/Endereço
     const tipoSelect = document.getElementById('tipo-select');
     const cardPessoa = document.getElementById('card-pessoa');
     const cardEmpresa = document.getElementById('card-empresa');
+    const cardEndereco = document.getElementById('card-endereco');
 
     function updateVisibility(value){
-        if(!cardPessoa || !cardEmpresa) return;
-        if(value === 'pessoa'){
+        // Esconde todos os cards
+        if(cardPessoa) cardPessoa.style.display = 'none';
+        if(cardEmpresa) cardEmpresa.style.display = 'none';
+        if(cardEndereco) cardEndereco.style.display = 'none';
+
+        // Mostra apenas o selecionado
+        if(value === 'pessoa' && cardPessoa){
             cardPessoa.style.display = '';
-            cardEmpresa.style.display = 'none';
-        } else if(value === 'empresa'){
-            cardPessoa.style.display = 'none';
+        } else if(value === 'empresa' && cardEmpresa){
             cardEmpresa.style.display = '';
-        } else { // ambos
-            cardPessoa.style.display = '';
-            cardEmpresa.style.display = '';
+        } else if(value === 'endereco' && cardEndereco){
+            cardEndereco.style.display = '';
+        } else if(value === 'ambos'){
+            // Mostra pessoa e empresa
+            if(cardPessoa) cardPessoa.style.display = '';
+            if(cardEmpresa) cardEmpresa.style.display = '';
         }
     }
 

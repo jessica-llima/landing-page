@@ -1,12 +1,75 @@
-/* Global Reset and Base Styles */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
-    color: #0f172a;
+/* ==========================
+   🔄 BASE / RESET GLOBAL
+   ========================== */
+
+/* Normalização de elementos padrão */
+html {
+  scroll-behavior: smooth;
 }
 
-* {
-    box-sizing: border-box;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--color-darker) 0%, var(--color-dark) 50%, var(--color-gray-900) 100%);
+}
+
+/* Reset de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Reset de inputs e buttons */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove decorações padrão */
+button, a {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: var(--color-muted);
+  opacity: 0.6;
+}
+
+/* Focus visible para acessibilidade */
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+/* Scrollbar futurista */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-petrol-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal);
 }

@@ -20,29 +20,65 @@
     <!-- Layouts -->
     <link rel="stylesheet" href="css/layouts/header.css">
     <link rel="stylesheet" href="css/layouts/grid.css">
+    <link rel="stylesheet" href="css/layouts/welcome.css">
 </head>
 <body>
-    <div class="wrap">
-        <header>
-            <div>
-                <h1>🏠 Central de Cadastros</h1>
-                <p class="lead">Bem-vindo ao sistema integrado</p>
-            </div>
-        </header>
-
-        <main style="display:flex;align-items:center;justify-content:center;min-height:60vh;">
-            <div class="card" style="max-width:720px;text-align:center;">
-                <h2>Bem-vindo à Central de Cadastros</h2>
-                <p class="lead">Aqui você pode cadastrar Pessoas, Empresas e Endereços. Clique em Entrar para abrir os formulários.</p>
-
-                <div class="actions" style="justify-content:center;margin-top:20px;">
-                    <a class="btn-primary" href="assents/index.html">✏️ Entrar</a>
-                    <a class="btn-ghost" href="assents/index.html" style="margin-left:8px;">📝 Ir ao formulário</a>
-                </div>
-
-                <small class="helper" style="display:block;margin-top:14px;color:var(--muted)">Dica: use o seletor no canto superior direito da próxima página para mostrar apenas Pessoa ou Empresa.</small>
-            </div>
-        </main>
+    <!-- Decorações de fundo -->
+    <div class="welcome-bg-decoration">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
     </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="welcome-container">
+        <!-- Header -->
+        <div class="welcome-header">
+            <h1>Central de Cadastros</h1>
+            <p class="subtitle">🚀 Sistema Moderno e Futurista</p>
+        </div>
+
+        <!-- Card Principal -->
+        <div class="welcome-card">
+            <p>
+                Bem-vindo ao sistema integrado para cadastro de <strong>Pessoas</strong>, <strong>Empresas</strong> e <strong>Endereços</strong>. 
+                Tudo em um único lugar, com design futurista e interface moderna.
+            </p>
+
+            <!-- Features -->
+            <div class="welcome-features">
+                <div class="feature">
+                    <strong>👤 Pessoas</strong>
+                    <span>Cadastre dados pessoais com segurança</span>
+                </div>
+                <div class="feature">
+                    <strong>🏢 Empresas</strong>
+                    <span>Gerencie informações comerciais</span>
+                </div>
+                <div class="feature">
+                    <strong>📍 Endereços</strong>
+                    <span>Organize localidades e dados geográficos</span>
+                </div>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div class="welcome-actions">
+                <a href="assents/index.html" class="btn-start">✏️ Começar Agora</a>
+                <a href="assents/index.html" class="btn-info">� Ver Formulários</a>
+            </div>
+
+            <!-- Footer -->
+            <div class="welcome-footer">
+                <p>💡 <strong>Dica:</strong> Na próxima página, use o seletor para visualizar apenas Pessoa, Empresa ou Endereço individualmente.</p>
+                <p style="margin-top: 8px; font-size: 0.85rem;">Desenvolvido com ❤️ usando tecnologias modernas</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animação suave ao carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🎉 Bem-vindo à Central de Cadastros!');
+        });
+    </script>
 </body>
 </html>

@@ -1,32 +1,79 @@
-/* Button Styles */
-button, a.btn-primary, a.btn-ghost {
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 0;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.2s ease;
+/* ==========================
+   🔘 COMPONENTS / BOTÕES FUTURISTAS
+   ========================== */
+
+button,
+a.btn-primary,
+a.btn-ghost {
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
 }
 
+/* Botão Primário - Ciano/Teal */
 .btn-primary {
-    background: var(--accent);
-    color: #fff;
+  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-petrol-light) 100%);
+  color: var(--color-dark);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+  font-weight: var(--font-weight-bold);
 }
 
 .btn-primary:hover {
-    opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0, 188, 212, 0.5);
+  background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-teal) 100%);
 }
 
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Botão Ghost - Outline Moderno */
 .btn-ghost {
-    background: transparent;
-    color: var(--muted);
-    border: 1px solid rgba(15, 23, 42, 0.06);
+  background: transparent;
+  color: var(--color-teal);
+  border: 2px solid var(--color-teal);
+  box-shadow: inset 0 0 10px rgba(0, 188, 212, 0.1);
 }
 
 .btn-ghost:hover {
-    background: rgba(15, 23, 42, 0.03);
+  background: rgba(0, 188, 212, 0.1);
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3), inset 0 0 10px rgba(0, 188, 212, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Botão Home */
+.btn-home {
+  margin-right: 12px;
+  font-weight: var(--font-weight-bold);
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-home:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
+  text-decoration: none;
+}
+
+/* Desabilitar estado */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
 }

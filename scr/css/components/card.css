@@ -1,25 +1,99 @@
-/* Card Styles */
+/* ==========================
+   📦 COMPONENTS / CARDS FUTURISTAS
+   ========================== */
+
 .card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 18px;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-    border: 1px solid rgba(15, 23, 42, 0.03);
-    transition: all 0.2s ease;
+  background: linear-gradient(135deg, var(--color-gray-900) 0%, var(--color-gray-800) 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--padding);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 188, 212, 0.1);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de brilho em hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+  pointer-events: none;
 }
 
 .card:hover {
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: rgba(0, 188, 212, 0.3);
+  background: linear-gradient(135deg, var(--color-gray-800) 0%, var(--color-petrol) 100%);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h2 {
-    margin: 0 0 12px 0;
-    font-size: 1rem;
-    color: inherit;
+  margin: 0 0 var(--gap-md) 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card h3 {
+  margin: 0 0 var(--gap-sm) 0;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-teal);
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
 }
 
 .card p.lead {
-    margin: 0;
-    color: var(--muted);
-    font-size: 0.95rem;
+  margin: 0;
+  color: var(--color-gray-300);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* Variante 1 - Card Pessoa */
+.card-pessoa {
+  border-top: 3px solid var(--color-teal);
+}
+
+.card-pessoa h2 {
+  color: var(--color-cyan);
+}
+
+/* Variante 2 - Card Empresa */
+.card-empresa {
+  border-top: 3px solid var(--color-petrol-light);
+}
+
+.card-empresa h2 {
+  color: var(--color-teal);
+}
+
+/* Variante 3 - Card Endereço */
+.card-endereco {
+  border-top: 3px solid var(--color-accent);
+}
+
+.card-endereco h2 {
+  background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

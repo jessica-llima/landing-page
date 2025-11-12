@@ -1,69 +1,124 @@
-/* Form Styles */
+/* ==========================
+   📝 COMPONENTS / FORMULÁRIOS
+   ========================== */
+
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
 }
 
 .row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: var(--gap-md);
+  align-items: flex-start;
+  margin-bottom: var(--gap-sm);
 }
 
 .row label {
-    width: 110px;
-    font-size: 0.9rem;
-    color: var(--muted);
-    white-space: nowrap;
+  width: auto;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-200);
+  white-space: nowrap;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  min-width: 120px;
 }
 
 .row .field {
-    flex: 1;
-    display: flex;
-    gap: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.row .field input,
+.row .field select {
+  width: 100%;
 }
 
 .actions {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    margin-top: 8px;
+  display: flex;
+  gap: var(--gap-md);
+  justify-content: flex-end;
+  margin-top: var(--gap-md);
+  padding-top: var(--gap-md);
+  border-top: 1px solid rgba(0, 188, 212, 0.1);
 }
 
 .compact {
-    display: grid;
-    grid-template-columns: 1fr 120px;
-    gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-md);
 }
 
 .compact label {
-    width: auto;
+  width: auto;
+}
+
+.compact input,
+.compact select {
+  grid-column: 1 / -1;
 }
 
 small.helper {
-    color: var(--muted);
+  color: var(--color-gray-400);
+  display: block;
+  margin-top: var(--gap-sm);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Estados de campo */
+.field {
+  position: relative;
+}
+
+.field label.required::after {
+  content: ' *';
+  color: var(--color-cyan);
+  margin-left: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 880px) {
+  .row {
+    flex-direction: column;
+    gap: var(--gap-sm);
+  }
+
+  .row label {
     display: block;
-    margin-top: 6px;
-    font-size: 0.85rem;
+    width: auto;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  .actions {
+    gap: var(--gap-sm);
+  }
+
+  .compact {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
-    .row label {
-        display: none;
-        width: auto;
-    }
+  .row label {
+    margin-bottom: 4px;
+  }
 
-    .row {
-        flex-direction: column;
-        align-items: stretch;
-    }
+  .actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+  }
 
-    .compact {
-        grid-template-columns: 1fr;
-    }
-
-    .actions {
-        justify-content: center;
-    }
+  .actions .btn {
+    flex: 1;
+    min-width: 140px;
+  }
 }
