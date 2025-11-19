@@ -46,6 +46,8 @@ landing page/
 
 Este repositório contém uma landing page modular para cadastro (HTML/CSS/JS), além de scaffolds opcionais para frontend (Vite + React) e backend (FastAPI). O objetivo desta atualização foi limpar arquivos desnecessários, consolidar estilos e preparar o projeto para entrega.
 
+Nota sobre autoria: este site foi criado com auxílio de ferramentas de inteligência artificial (IA) para fins de estudo e prototipagem. Todo texto, sugestões de estrutura e scaffolds gerados por IA foram revisados e ajustados manualmente antes da publicação.
+
 ## Estrutura principal
 
 ```
