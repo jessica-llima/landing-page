@@ -23,6 +23,11 @@
 @import url('./layouts/header.css');
 @import url('./layouts/grid.css');
 @import url('./layouts/welcome.css');
+@import url('./layouts/cards-display.css');
+
+/* ===== RESPONSIVIDADE CENTRALIZADA ===== */
+/* Todos os media queries organizados em um arquivo */
+@import url('./layouts/responsive.css');
 
 /* ===== TIPOGRAFIA GLOBAL ===== */
 p.lead {

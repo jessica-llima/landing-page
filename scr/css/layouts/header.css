@@ -10,25 +10,25 @@ header {
   margin-bottom: var(--gap-md);
   flex-wrap: wrap;
   padding: var(--gap-md) 0;
-  border-bottom: 2px solid rgba(0, 188, 212, 0.2);
-  background: linear-gradient(180deg, rgba(26, 77, 92, 0.1) 0%, transparent 100%);
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
 }
 
 header h1 {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   margin: 0;
-  color: var(--color-cyan);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: var(--color-text-primary);
+  text-transform: none;
+  letter-spacing: 0.2px;
 }
 
 header h1 small {
   display: block;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: var(--color-teal);
-  letter-spacing: 0.5px;
+  color: var(--color-accent);
+  letter-spacing: 0.2px;
   margin-top: 4px;
 }
 
@@ -45,31 +45,42 @@ header > div:first-child {
 }
 
 .header-actions label {
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-200);
+  font-size: 0.95rem;
+  color: var(--color-muted);
   margin-right: var(--gap-sm);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-weight: var(--font-weight-medium);
+  text-transform: none;
+  letter-spacing: 0.2px;
 }
 
 .header-actions select {
-  padding: 10px 12px;
+  padding: 8px 10px;
   border-radius: var(--radius-sm);
-  border: 2px solid rgba(0, 188, 212, 0.2);
-  background: var(--color-gray-800);
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
   margin-right: var(--gap-sm);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
-  color: var(--color-gray-100);
-  transition: all var(--transition-smooth);
+  color: var(--color-text-primary);
+  transition: all var(--transition-normal);
 }
 
 .header-actions select:hover,
 .header-actions select:focus {
-  border-color: var(--color-teal);
-  background: var(--color-gray-750);
-  box-shadow: 0 0 15px rgba(0, 188, 212, 0.2);
+  border-color: var(--color-accent);
+  background: var(--color-card);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Specific small utility classes for tipo selector */
+.tipo-label {
+  display: inline-block;
+}
+
+.tipo-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 /* Home Button - Retornar à Página Inicial */
@@ -86,69 +97,4 @@ header > div:first-child {
   transform: scale(1.08);
   box-shadow: 0 0 20px rgba(0, 188, 212, 0.4);
   text-decoration: none;
-}
-
-/* Responsividade */
-@media (max-width: 880px) {
-  header {
-    gap: var(--gap-md);
-    padding: var(--gap-md) 0;
-  }
-
-  header h1 {
-    font-size: var(--font-size-md);
-  }
-
-  .header-actions {
-    order: 3;
-    width: 100%;
-    justify-content: space-between;
-    gap: var(--gap-sm);
-  }
-
-  .header-actions label {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--gap-sm);
-    padding: var(--gap-md) 0;
-  }
-
-  header h1 {
-    font-size: var(--font-size-base);
-  }
-
-  header h1 small {
-    font-size: 0.75rem;
-  }
-
-  .header-actions {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--gap-sm);
-  }
-
-  .header-actions label {
-    margin-right: 0;
-    margin-bottom: 4px;
-  }
-
-  .header-actions select {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: var(--gap-sm);
-  }
-
-  .btn-home {
-    width: 100%;
-    text-align: center;
-    margin-right: 0;
-    justify-content: center;
-  }
 }

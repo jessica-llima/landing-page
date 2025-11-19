@@ -5,11 +5,11 @@
 button,
 a.btn-primary,
 a.btn-ghost {
-  padding: 12px 24px;
+  padding: 10px 18px;
   border-radius: var(--radius-sm);
   border: none;
   cursor: pointer;
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -17,23 +17,22 @@ a.btn-ghost {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 0.85rem;
+  text-transform: none;
+  letter-spacing: 0.2px;
+  font-size: 0.95rem;
 }
 
 /* Botão Primário - Ciano/Teal */
 .btn-primary {
-  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-petrol-light) 100%);
-  color: var(--color-dark);
-  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
-  font-weight: var(--font-weight-bold);
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  font-weight: var(--font-weight-semibold);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(0, 188, 212, 0.5);
-  background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-teal) 100%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary:active {
@@ -43,32 +42,25 @@ a.btn-ghost {
 /* Botão Ghost - Outline Moderno */
 .btn-ghost {
   background: transparent;
-  color: var(--color-teal);
-  border: 2px solid var(--color-teal);
-  box-shadow: inset 0 0 10px rgba(0, 188, 212, 0.1);
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
 }
 
 .btn-ghost:hover {
-  background: rgba(0, 188, 212, 0.1);
-  border-color: var(--color-cyan);
-  color: var(--color-cyan);
-  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3), inset 0 0 10px rgba(0, 188, 212, 0.1);
-  transform: translateY(-2px);
+  background: var(--color-gray-100);
+  color: var(--color-accent);
+  transform: translateY(-1px);
 }
 
 /* Botão Home */
 .btn-home {
   margin-right: 12px;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   transition: all var(--transition-normal);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .btn-home:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px rgba(0, 188, 212, 0.4);
-  text-decoration: none;
+  transform: scale(1.03);
 }
 
 /* Desabilitar estado */
@@ -76,4 +68,76 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none !important;
+}
+
+/* Responsividade */
+@media (max-width: 880px) {
+  button,
+  a.btn-primary,
+  a.btn-ghost {
+    padding: 11px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-home {
+    margin-right: 8px;
+  }
+
+  .btn-home:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 640px) {
+  button,
+  a.btn-primary,
+  a.btn-ghost {
+    padding: 10px 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-home {
+    margin-right: 6px;
+    padding: 8px 12px;
+  }
+
+  .btn-home:hover {
+    transform: scale(1.04);
+  }
+
+  .btn-start {
+    width: 100%;
+  }
+
+  .btn-info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  button,
+  a.btn-primary,
+  a.btn-ghost {
+    padding: 9px 14px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+
+  .btn-home {
+    margin-right: 0;
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+
+  .btn-home:hover {
+    transform: scale(1.03);
+  }
+
+  .btn-start,
+  .btn-info {
+    width: 100%;
+    justify-content: center;
+  }
 }

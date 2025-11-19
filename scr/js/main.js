@@ -37,29 +37,30 @@ function initEventListeners(){
         });
     }
 
-    // Tipo selector: controlar visibilidade de Pessoa/Empresa/Endereço
+    // Tipo selector: controlar visibilidade de Login/Pessoa/Endereço
     const tipoSelect = document.getElementById('tipo-select');
+    const cardLogin = document.getElementById('card-login');
     const cardPessoa = document.getElementById('card-pessoa');
-    const cardEmpresa = document.getElementById('card-empresa');
     const cardEndereco = document.getElementById('card-endereco');
 
     function updateVisibility(value){
         // Esconde todos os cards
+        if(cardLogin) cardLogin.style.display = 'none';
         if(cardPessoa) cardPessoa.style.display = 'none';
-        if(cardEmpresa) cardEmpresa.style.display = 'none';
         if(cardEndereco) cardEndereco.style.display = 'none';
 
         // Mostra apenas o selecionado
-        if(value === 'pessoa' && cardPessoa){
+        if(value === 'login' && cardLogin){
+            cardLogin.style.display = '';
+        } else if(value === 'pessoa' && cardPessoa){
             cardPessoa.style.display = '';
-        } else if(value === 'empresa' && cardEmpresa){
-            cardEmpresa.style.display = '';
         } else if(value === 'endereco' && cardEndereco){
             cardEndereco.style.display = '';
         } else if(value === 'ambos'){
-            // Mostra pessoa e empresa
+            // Mostra todos os cards
+            if(cardLogin) cardLogin.style.display = '';
             if(cardPessoa) cardPessoa.style.display = '';
-            if(cardEmpresa) cardEmpresa.style.display = '';
+            if(cardEndereco) cardEndereco.style.display = '';
         }
     }
 
@@ -68,6 +69,21 @@ function initEventListeners(){
         updateVisibility(tipoSelect.value || 'ambos');
         tipoSelect.addEventListener('change', (e) => updateVisibility(e.target.value));
     }
+
+    // Smooth scroll when arriving with a hash (e.g. index.html#card-login)
+    function scrollToHashOnLoad(){
+        if(window.location && window.location.hash){
+            const id = window.location.hash.replace('#','');
+            const el = document.getElementById(id);
+            if(el){
+                // small timeout to allow layout to stabilize
+                setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+            }
+        }
+    }
+
+    // Run once on init
+    scrollToHashOnLoad();
 }
 
 document.addEventListener('DOMContentLoaded', initEventListeners);

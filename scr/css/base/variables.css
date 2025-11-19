@@ -3,62 +3,57 @@
    ========================== */
 
 :root {
-  /* 🎨 CORES - Paleta Moderna e Futurista */
-  /* Preto e Cinza */
-  --color-dark: #0a0e27;
-  --color-darker: #050812;
-  --color-gray-900: #1a1f3a;
-  --color-gray-800: #2d3651;
-  --color-gray-750: #323d52;
-  --color-gray-700: #3d4a63;
-  --color-gray-600: #4d5a75;
-  --color-gray-500: #6b7589;
-  --color-gray-400: #8892ac;
-  --color-gray-300: #a8b5ce;
-  --color-gray-200: #d1d9f0;
-  --color-gray-100: #e8eef5;
-  
-  /* Azul Petróleo e Variações */
-  --color-petrol: #1a4d5c;
-  --color-petrol-light: #2a7a8f;
-  --color-petrol-lighter: #3da5b8;
-  --color-teal: #00bcd4;
-  --color-cyan: #00e5ff;
-  
-  /* Gradientes */
-  --color-bg: #0a0e27;
-  --color-card: #1a1f3a;
-  --color-accent: #00bcd4;
-  --color-accent-alt: #1a4d5c;
-  --color-muted: #8892ac;
-  --color-text-primary: #f5f7fa;
-  --color-text-secondary: #a8b5ce;
-  --color-border: #2d3651;
-  --color-gradient-start: #0a0e27;
-  --color-gradient-end: #1a1f3a;
-  
-  /* Cores de Destaque */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  --color-info: #00bcd4;
+  /* 🎨 CORES - Tema calmo e neutro */
+  --color-dark: #0f1724; /* texto principal (escuro, porém suave) */
+  --color-darker: #091226;
+  --color-gray-900: #0f1724;
+  --color-gray-800: #2b3846;
+  --color-gray-700: #3b4b5b;
+  --color-gray-600: #556471;
+  --color-gray-500: #7b888f;
+  --color-gray-400: #aab3b9;
+  --color-gray-300: #d7dde1;
+  --color-gray-200: #eef2f4;
+  --color-gray-100: #fbfcfe;
 
-  /* ✨ SOMBRAS E RAIOS - Futuristas */
-  --shadow-sm: 0 2px 8px rgba(0, 188, 212, 0.05);
-  --shadow-md: 0 6px 18px rgba(0, 188, 212, 0.1);
-  --shadow-lg: 0 12px 32px rgba(0, 188, 212, 0.15);
-  --shadow-xl: 0 20px 48px rgba(0, 188, 212, 0.2);
-  --shadow-glow: 0 0 20px rgba(0, 188, 212, 0.3);
-  --radius: 12px;
+  /* Acentos suaves (azul discreto) */
+  --color-accent-primary: #1f6feb; /* azul calmo */
+  --color-accent-muted: #7da7ff;
+
+  /* Superfícies */
+  --color-bg: #ffffff; /* fundo principal branco */
+  --color-card: #ffffff; /* cards brancos com borda suave */
+  --color-accent: var(--color-accent-primary);
+  --color-accent-alt: var(--color-accent-muted);
+  --color-muted: var(--color-gray-600);
+  --color-text-primary: var(--color-dark);
+  --color-text-secondary: var(--color-gray-700);
+  --color-border: #e6edf3;
+  --color-gradient-start: #ffffff;
+  --color-gradient-end: #ffffff;
+
+  /* Cores de Destaque */
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-info: var(--color-teal);
+
+  /* ✨ SOMBRAS E RAIOS - sutis e discretas */
+  --shadow-sm: 0 6px 14px rgba(16, 24, 32, 0.06);
+  --shadow-md: 0 10px 24px rgba(16, 24, 32, 0.08);
+  --shadow-lg: 0 14px 32px rgba(16, 24, 32, 0.10);
+  --shadow-xl: 0 20px 48px rgba(16, 24, 32, 0.12);
+  --shadow-glow: 0 0 12px rgba(31, 111, 235, 0.06);
+  --radius: 10px;
   --radius-sm: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 14px;
 
   /* 📏 ESPAÇAMENTOS */
-  --gap: 18px;
-  --gap-sm: 8px;
+  --gap: 16px;
+  --gap-sm: 10px;
   --gap-md: 12px;
-  --padding: 18px;
-  --padding-sm: 10px;
+  --padding: 16px;
+  --padding-sm: 8px;
 
   /* 🧠 TIPOGRAFIA */
   --font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

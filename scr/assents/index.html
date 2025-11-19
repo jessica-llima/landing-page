@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Página integrada de cadastros</title>
+    <title>Cadastros</title>
     <!-- CSS Main Entry Point -->
     <link rel="stylesheet" href="../css/main.css">
     
@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="../css/components/card.css">
     <link rel="stylesheet" href="../css/components/form.css">
     
-    <!-- Layouts -->
+    <!-- 1
+     Layouts -->
     <link rel="stylesheet" href="../css/layouts/header.css">
     <link rel="stylesheet" href="../css/layouts/grid.css">
 </head>
@@ -26,18 +27,19 @@
 <body>
     <div class="wrap">
         <header>
-            <div>
-                <h1>Central de Cadastros</h1>
-                <picture> </picture>
+                <div>
+                <h1>LandingPage — Central de Cadastros</h1>
+                cd 'C:\Users\limaj\Desktop\landing page'
+                cd scr
+                python -m http.server 8000                <picture aria-hidden="true"></picture>
             </div>
             <div class="header-actions">
-                <a class="btn-ghost btn-home" href="../index.html" title="Voltar à página inicial">🏠 Início</a>
-                <label for="tipo-select" style="font-size:0.95rem;color:var(--muted);margin-right:8px">Tipo:</label>
-                <select id="tipo-select" aria-label="Selecionar tipo"
-                    style="padding:8px 10px;border-radius:8px;border:1px solid #e6e9ef;background:#fff;margin-right:8px">
-                    <option value="ambos">Ambos</option>
+                <a class="btn-ghost btn-home" href="../index.html" title="Abrir LandingPage" aria-label="Abrir LandingPage">LandingPage</a>
+                <label for="tipo-select" class="tipo-label">Tipo:</label>
+                <select id="tipo-select" class="tipo-select" aria-label="Selecionar tipo">
+                    <option value="ambos">Todos</option>
+                    <option value="login">Login</option>
                     <option value="pessoa">Pessoa</option>
-                    <option value="empresa">Empresa</option>
                     <option value="endereco">Endereço</option>
                 </select>
                 <button id="btn-scroll" class="btn-ghost" type="button">Ir ao formulário</button>
@@ -45,10 +47,38 @@
         </header>
 
         <main id="main" class="grid">
-            <!-- Left column: Pessoa + Empresa cards -->
+            <!-- Left column: Login + Pessoa + Endereço cards -->
             <section class="cards-grid">
+                <article id="card-login" class="card" aria-labelledby="login-title">
+                    <h2 id="login-title">🔐 Login</h2>
+                    <form id="form-login">
+                        <div class="row">
+                            <label for="email-login">Email</label>
+                            <div class="field">
+                                <input id="email-login" name="email" type="email" placeholder="seu.email@dominio.com" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label for="senha-login">Senha</label>
+                            <div class="field">
+                                <input id="senha-login" name="senha" type="password" placeholder="Sua senha" required>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button type="button" class="btn-ghost" data-reset="form-login">Limpar</button>
+                            <button type="submit" class="btn-primary">Entrar</button>
+                        </div>
+
+                        <small class="helper text-center">
+                            Não tem conta? <a href="#" class="helper-link">Cadastre-se</a>
+                        </small>
+                    </form>
+                </article>
+
                 <article id="card-pessoa" class="card" aria-labelledby="pessoa-title">
-                    <h2 id="pessoa-title">Cadastro Pessoa</h2>
+                    <h2 id="pessoa-title">👤 Cadastro Pessoa</h2>
                     <form id="form-pessoa">
                         <div class="row">
                             <label for="nome">Nome</label>
@@ -75,38 +105,6 @@
                         <div class="actions">
                             <button type="button" class="btn-ghost" data-reset="form-pessoa">Limpar</button>
                             <button type="submit" class="btn-primary">Salvar Pessoa</button>
-                        </div>
-                    </form>
-                </article>
-
-                <article id="card-empresa" class="card" aria-labelledby="empresa-title">
-                    <h2 id="empresa-title">Cadastro Empresa</h2>
-                    <form id="form-empresa">
-                        <div class="row">
-                            <label for="cnpj">CNPJ</label>
-                            <div class="field">
-                                <input id="cnpj" name="cnpj" type="text" placeholder="00.000.000/0000-00"
-                                    pattern="[0-9.\-/]{14,18}" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <label for="razao">Razão Social</label>
-                            <div class="field">
-                                <input id="razao" name="razao" type="text" placeholder="Nome da empresa" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <label for="telefone">Telefone</label>
-                            <div class="field">
-                                <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000">
-                            </div>
-                        </div>
-
-                        <div class="actions">
-                            <button type="button" class="btn-ghost" data-reset="form-empresa">Limpar</button>
-                            <button type="submit" class="btn-primary">Salvar Empresa</button>
                         </div>
                     </form>
                 </article>
@@ -138,16 +136,22 @@
                     </div>
 
                     <div class="row compact">
-                        <label>Cidade / Estado</label>
-                        <input id="cidade" name="cidade" type="text" placeholder="Cidade" required>
-                        <select id="estado" name="estado" required>
-                            <option value="">UF</option>
-                            <option>SP</option>
-                            <option>RJ</option>
-                            <option>MG</option>
-                            <option>BA</option>
-                            <option>PR</option>
-                        </select>
+                        <div>
+                            <label for="cidade">Cidade</label>
+                            <input id="cidade" name="cidade" type="text" placeholder="Cidade" required>
+                        </div>
+
+                        <div>
+                            <label for="estado">Estado (UF)</label>
+                            <select id="estado" name="estado" required>
+                                <option value="">UF</option>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>MG</option>
+                                <option>BA</option>
+                                <option>PR</option>
+                            </select>
+                        </div>
                     </div>
 
                     <small class="helper">Este formulário pode ser integrado a APIs de CEP para completar

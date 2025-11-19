@@ -1,0 +1,717 @@
+/* ================================================
+   📱 RESPONSIVIDADE CENTRALIZADA - LANDING PAGE
+   ================================================ */
+
+/* ============================================
+   VARIÁVEIS DE BREAKPOINTS (definidos em variables.css)
+   - Mobile: até 480px
+   - Tablet: 481px a 880px
+   - Desktop: 881px a 1100px
+   - Large Desktop: 1100px+
+   ============================================ */
+
+/* ============================================
+   MOBILE FIRST (480px ou menos)
+   ============================================ */
+
+/* Base: Todos os elementos já começam mobile-friendly */
+
+/* ============================================
+   TABLET (481px - 880px)
+   ============================================ */
+
+@media (min-width: 481px) and (max-width: 880px) {
+  /* Wrapper */
+  .wrap {
+    padding: var(--gap-md);
+    margin: 16px auto;
+  }
+
+  /* Headers */
+  header {
+    gap: var(--gap-md);
+    padding: var(--gap-md) 0;
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+  }
+
+  header h1 small {
+    font-size: 0.85rem;
+  }
+
+  /* Grid */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  aside {
+    position: static;
+    top: auto;
+  }
+
+  /* Welcome Page */
+  .welcome-container {
+    min-height: auto;
+    padding: var(--gap-md);
+    gap: var(--gap-md);
+  }
+
+  .welcome-header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  .welcome-header .subtitle {
+    font-size: 1rem;
+  }
+
+  .welcome-card {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .welcome-card p {
+    font-size: 1rem;
+  }
+
+  .welcome-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-md);
+  }
+
+  .feature {
+    padding: var(--gap-md);
+  }
+
+  .welcome-actions {
+    gap: var(--gap-md);
+  }
+
+  .welcome-actions .btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  /* Flex utilities */
+  .flex-center,
+  .flex-between {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Main */
+  main {
+    min-height: calc(100vh - 150px);
+  }
+
+  /* Decorações */
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
+    opacity: 0.04;
+  }
+
+  .blob-2 {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    right: -100px;
+    opacity: 0.04;
+  }
+
+  /* Cards Display */
+  .cards-selection {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--gap-md);
+  }
+
+  .card-button {
+    padding: var(--gap-md);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+  }
+
+  .card-button h3 {
+    font-size: var(--font-size-md);
+  }
+
+  .card-enlarged h2 {
+    font-size: 1.3rem;
+    margin-bottom: var(--gap-md);
+  }
+
+  .card-enlarged p {
+    font-size: 1rem;
+  }
+
+  .card-info {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+    padding: var(--gap-md);
+  }
+
+  .info-item strong {
+    font-size: 0.9rem;
+  }
+
+  .info-item li {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   DESKTOP (881px - 1099px)
+   ============================================ */
+
+@media (min-width: 881px) and (max-width: 1099px) {
+  /* Wrapper */
+  .wrap {
+    padding: var(--gap-md);
+    margin: 20px auto;
+  }
+
+  /* Headers */
+  header {
+    gap: var(--gap-md);
+  }
+
+  header h1 {
+    font-size: 1.25rem;
+  }
+
+  /* Grid - Colunas únicas em tablet-desktop */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-md);
+  }
+
+  aside {
+    position: static;
+    top: auto;
+  }
+
+  /* Welcome Page */
+  .welcome-header h1 {
+    font-size: 3rem;
+  }
+
+  .welcome-card {
+    padding: 2.5rem 2rem;
+  }
+
+  /* Flex utilities */
+  .flex-center,
+  .flex-between {
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================================
+   LARGE DESKTOP (1100px+)
+   ============================================ */
+
+@media (min-width: 1100px) {
+  /* Wrapper */
+  .wrap {
+    padding: var(--gap-md);
+    margin: 32px auto;
+    max-width: var(--breakpoint-desktop);
+  }
+
+  /* Grid - Layout em 2 colunas */
+  .grid {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+    gap: var(--gap-md);
+  }
+
+  /* Cards Grid - 3 colunas */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-md);
+  }
+
+  /* Aside sticky */
+  aside {
+    position: sticky;
+    top: 20px;
+    animation: fadeIn 0.8s ease-out 0.2s both;
+  }
+
+  /* Welcome Page */
+  .welcome-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .welcome-card {
+    padding: 3rem 2.5rem;
+    max-width: 600px;
+  }
+
+  /* Flex utilities */
+  .flex-center,
+  .flex-between {
+    gap: var(--gap-md);
+  }
+
+  /* Cards Display */
+  .cards-selection {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .card-enlarged h2 {
+    font-size: 1.5rem;
+  }
+
+  .card-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   MOBILE (até 480px) - Otimizações
+   ============================================ */
+
+@media (max-width: 480px) {
+  /* Wrapper */
+  .wrap {
+    padding: var(--gap-sm);
+    margin: 12px auto;
+    max-width: 100%;
+  }
+
+  /* Headers */
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-sm);
+    padding: var(--gap-sm) 0;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1rem;
+  }
+
+  header h1 small {
+    font-size: 0.7rem;
+  }
+
+  header > div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header-actions {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: var(--gap-sm);
+    flex-wrap: wrap;
+  }
+
+  .header-actions label {
+    width: 100%;
+    margin-bottom: var(--gap-sm);
+  }
+
+  .header-actions select {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  /* Grid */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+  }
+
+  aside {
+    position: static;
+  }
+
+  /* Main */
+  main {
+    min-height: calc(100vh - 150px);
+  }
+
+  /* Welcome Page */
+  .welcome-container {
+    padding: var(--gap-sm);
+    gap: var(--gap-sm);
+  }
+
+  .welcome-header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .welcome-header .subtitle {
+    font-size: 0.85rem;
+    margin-top: var(--gap-sm);
+  }
+
+  .welcome-card {
+    padding: 1rem;
+    max-width: 100%;
+    border-radius: var(--radius-sm);
+  }
+
+  .welcome-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: var(--gap-sm) 0;
+  }
+
+  .welcome-features {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+  }
+
+  .feature {
+    padding: var(--gap-sm);
+    text-align: left;
+  }
+
+  .feature strong {
+    font-size: 0.9rem;
+  }
+
+  .feature span {
+    font-size: 0.85rem;
+  }
+
+  .welcome-actions {
+    gap: var(--gap-sm);
+  }
+
+  .welcome-actions .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .welcome-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .welcome-footer p {
+    margin: 4px 0;
+  }
+
+  /* Flex utilities */
+  .flex-center,
+  .flex-between {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--gap-sm);
+  }
+
+  /* Cards Display */
+  .cards-selection {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--gap-md);
+  }
+
+  .card-button {
+    padding: var(--gap-md);
+  }
+
+  .card-icon {
+    font-size: 2rem;
+  }
+
+  .card-button h3 {
+    font-size: var(--font-size-sm);
+  }
+
+  .card-button p {
+    font-size: 0.8rem;
+  }
+
+  .card-display-area {
+    min-height: auto;
+  }
+
+  .card-enlarged {
+    padding: var(--gap-md);
+    max-width: 100%;
+  }
+
+  .card-enlarged h2 {
+    font-size: 1.1rem;
+    margin-bottom: var(--gap-sm);
+  }
+
+  .card-enlarged p {
+    font-size: 0.95rem;
+    margin-bottom: var(--gap-sm);
+  }
+
+  .card-info {
+    padding: var(--gap-sm);
+    margin: var(--gap-sm) 0;
+    gap: var(--gap-sm);
+  }
+
+  .info-item strong {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .info-item li {
+    font-size: 0.8rem;
+    padding: 2px 0;
+    padding-left: 16px;
+  }
+
+  .btn-back {
+    width: 100%;
+    margin-bottom: var(--gap-md);
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
+
+  /* Decorações */
+  .blob-1,
+  .blob-2 {
+    opacity: 0.02;
+  }
+
+  .blob-1 {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    left: -100px;
+  }
+
+  .blob-2 {
+    width: 250px;
+    height: 250px;
+    bottom: -120px;
+    right: -120px;
+  }
+
+  /* Botões */
+  .btn-home {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+/* ============================================
+   ULTRA SMALL (até 360px)
+   ============================================ */
+
+@media (max-width: 360px) {
+  /* Wrapper */
+  .wrap {
+    padding: 8px;
+    margin: 8px auto;
+  }
+
+  /* Headers */
+  header {
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  header h1 {
+    font-size: 0.95rem;
+  }
+
+  header h1 small {
+    font-size: 0.65rem;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .header-actions label {
+    font-size: 0.8rem;
+  }
+
+  .header-actions select {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+
+  /* Welcome */
+  .welcome-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .welcome-header .subtitle {
+    font-size: 0.75rem;
+  }
+
+  .welcome-card {
+    padding: 0.75rem;
+  }
+
+  .welcome-card p {
+    font-size: 0.85rem;
+    margin: 8px 0;
+  }
+
+  .welcome-features {
+    gap: 6px;
+  }
+
+  .feature {
+    padding: 8px;
+  }
+
+  .feature strong {
+    font-size: 0.8rem;
+  }
+
+  .feature span {
+    font-size: 0.75rem;
+  }
+
+  .welcome-actions .btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .welcome-footer {
+    font-size: 0.7rem;
+  }
+
+  /* Cards Display */
+  .cards-selection {
+    grid-template-columns: 1fr;
+    gap: var(--gap-sm);
+  }
+
+  .card-button {
+    padding: var(--gap-md);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+  }
+
+  .card-button h3 {
+    font-size: 0.95rem;
+  }
+
+  .card-button p {
+    font-size: 0.75rem;
+  }
+
+  .card-display-area {
+    min-height: auto;
+  }
+
+  .card-enlarged {
+    padding: 12px;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .card-enlarged h2 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .card-enlarged p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .card-info {
+    padding: 10px;
+    margin: 10px 0;
+    gap: 8px;
+    border-radius: 6px;
+  }
+
+  .info-item strong {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+
+  .info-item ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-item li {
+    font-size: 0.75rem;
+    padding: 2px 0;
+    padding-left: 14px;
+  }
+
+  .btn-back {
+    width: 100%;
+    margin-bottom: var(--gap-md);
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+
+  a.btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  header,
+  .header-actions,
+  .btn-home {
+    display: none;
+  }
+
+  .wrap {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .welcome-bg-decoration,
+  .blob-1,
+  .blob-2 {
+    display: none;
+  }
+}

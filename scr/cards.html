@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cards — Central de Cadastros</title>
+    <!-- CSS Main Entry Point -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/base/reset.css">
+    
+    <!-- Components -->
+    <link rel="stylesheet" href="css/components/button.css">
+    <link rel="stylesheet" href="css/components/input.css">
+    <link rel="stylesheet" href="css/components/card.css">
+    <link rel="stylesheet" href="css/components/form.css">
+    
+    <!-- Layouts -->
+    <link rel="stylesheet" href="css/layouts/header.css">
+    <link rel="stylesheet" href="css/layouts/grid.css">
+    <link rel="stylesheet" href="css/layouts/welcome.css">
+    <link rel="stylesheet" href="css/layouts/cards-display.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div>
+                <h1>Visualizar Cards</h1>
+                <small class="text-muted">Clique em um card abaixo para visualizá-lo</small>
+            </div>
+            <div class="header-actions">
+                <a class="btn-ghost btn-home" href="index.html" title="Voltar à página inicial">🏠 Início</a>
+            </div>
+        </header>
+
+        <main class="grid">
+            <!-- Card de Seleção -->
+            <section class="cards-selection">
+                <div class="card-button" data-card="pessoa">
+                    <div class="card-icon">👤</div>
+                    <h3>Pessoa</h3>
+                    <p>Cadastro de dados pessoais</p>
+                </div>
+
+                <div class="card-button" data-card="empresa">
+                    <div class="card-icon">🏢</div>
+                    <h3>Empresa</h3>
+                    <p>Informações comerciais</p>
+                </div>
+
+                <div class="card-button" data-card="endereco">
+                    <div class="card-icon">📍</div>
+                    <h3>Endereço</h3>
+                    <p>Dados de localização</p>
+                </div>
+            </section>
+
+            <!-- Área de Exibição do Card Selecionado -->
+            <section class="card-display-area">
+                <!-- Card Pessoa -->
+                <div id="display-pessoa" class="card-display hidden">
+                    <button class="btn-back" onclick="goBack()">← Voltar</button>
+                    <div class="card card-pessoa card-enlarged">
+                        <h2 id="pessoa-title">📋 Cadastro de Pessoa</h2>
+                        <p>Informações pessoais do usuário</p>
+                        
+                        <div class="card-info">
+                            <div class="info-item">
+                                <strong>Campos:</strong>
+                                <ul>
+                                    <li>Nome completo</li>
+                                    <li>Email</li>
+                                    <li>Senha segura</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-item">
+                                <strong>Validações:</strong>
+                                <ul>
+                                    <li>✓ Email válido</li>
+                                    <li>✓ Senha mínima 8 caracteres</li>
+                                    <li>✓ Campos obrigatórios</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <a href="assents/index.html?type=pessoa" class="btn-primary mt-2">
+                            → Ir para Formulário
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card Empresa -->
+                <div id="display-empresa" class="card-display hidden">
+                    <button class="btn-back" onclick="goBack()">← Voltar</button>
+                    <div class="card card-empresa card-enlarged">
+                        <h2 id="empresa-title">🏢 Cadastro de Empresa</h2>
+                        <p>Informações comerciais e administrativas</p>
+                        
+                        <div class="card-info">
+                            <div class="info-item">
+                                <strong>Campos:</strong>
+                                <ul>
+                                    <li>CNPJ</li>
+                                    <li>Razão Social</li>
+                                    <li>Telefone para contato</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-item">
+                                <strong>Validações:</strong>
+                                <ul>
+                                    <li>✓ CNPJ formato brasileiro</li>
+                                    <li>✓ Razão Social obrigatória</li>
+                                    <li>✓ Telefone com máscara</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <a href="assents/index.html?type=empresa" class="btn-primary mt-2">
+                            → Ir para Formulário
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card Endereço -->
+                <div id="display-endereco" class="card-display hidden">
+                    <button class="btn-back" onclick="goBack()">← Voltar</button>
+                    <div class="card card-endereco card-enlarged">
+                        <h2 id="endereco-title">📍 Cadastro de Endereço</h2>
+                        <p>Informações geográficas e de localização</p>
+                        
+                        <div class="card-info">
+                            <div class="info-item">
+                                <strong>Campos:</strong>
+                                <ul>
+                                    <li>CEP</li>
+                                    <li>Rua</li>
+                                    <li>Número</li>
+                                    <li>Cidade</li>
+                                    <li>Estado</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="info-item">
+                                <strong>Validações:</strong>
+                                <ul>
+                                    <li>✓ CEP com máscara</li>
+                                    <li>✓ Endereço completo</li>
+                                    <li>✓ Estado selecionável</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <a href="assents/index.html?type=endereco" class="btn-primary mt-2">
+                            → Ir para Formulário
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/cards.js"></script>
+</body>
+
+</html>

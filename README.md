@@ -2,6 +2,18 @@
 
 Projeto de página de cadastro com HTML modular, CSS organizado e JavaScript puro (sem dependências externas).
 
+## Estrutura resumida (atualizada)
+
+```
+landing-page/
+├── .github/
+├── archive/
+├── backend/
+├── frontend/
+├── scr/
+└── scripts/
+```
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -29,84 +41,99 @@ landing page/
 └── README_CSS.md               # Documentação da estrutura CSS
 ```
 
-## 🚀 Como Usar
+## 🚀 Como Usar (Desenvolvimento)
+# Landing Page — Central de Cadastros (Finalizado)
 
-### 1. Iniciar o Servidor Local
+Este repositório contém uma landing page modular para cadastro (HTML/CSS/JS), além de scaffolds opcionais para frontend (Vite + React) e backend (FastAPI). O objetivo desta atualização foi limpar arquivos desnecessários, consolidar estilos e preparar o projeto para entrega.
 
-No PowerShell, na pasta do projeto:
+## Estrutura principal
 
-```powershell
-cd 'C:\Users\limaj\Desktop\landing page'
-python -m http.server 8000
+```
+landing-page/
+├── .github/
+├── archive/                # arquivos antigos e movimentados (se aplicável)
+├── backend/                # scaffold FastAPI (opcional)
+├── frontend/               # scaffold Vite + React (opcional)
+├── scr/                    # site estático (HTML/CSS/JS)
+└── scripts/                # scripts de conveniência (PowerShell)
 ```
 
-### 2. Abrir no Navegador
+## Mudanças aplicadas nesta finalização
+- Remoção/limpeza de documentação antiga e duplicada.
+- Consolidação de CSS modular e centralização de media queries em `scr/css/layouts/responsive.css`.
+- Remoção de estilos inline e melhorias básicas de acessibilidade (`label`/`for`, `aria-hidden` quando aplicável).
+- Adição de scaffolds para `backend/` (FastAPI) e `frontend/` (Vite + React) e arquivos Docker/Docker Compose para facilitar execução em containers.
 
-- **Página Inicial**: http://localhost:8000/scr/index.html
-- **Formulários**: http://localhost:8000/scr/assents/index.html
+> Nota: arquivos de documentação antigos foram removidos. Se precisar restaurá-los, use os comandos Git listados abaixo.
 
-## ✨ Funcionalidades
+## Como executar (rápido)
 
-### Página Inicial (`scr/index.html`)
-- Bem-vindo com descrição do projeto
-- Botões para entrar nos formulários
-- Dica sobre o seletor de tipo
+Recomendo usar o script de conveniência `scripts/start-dev.ps1` (PowerShell) que inicia os serviços que estiverem configurados no ambiente.
 
-### Página de Cadastros (`scr/assents/index.html`)
-- **Seletor de Tipo**: Alterna entre Pessoa, Empresa ou Ambos
-- **Formulário Pessoa**: Nome, Email, Senha
-- **Formulário Empresa**: CNPJ, Razão Social, Telefone
-- **Formulário Endereço**: CEP, Rua, Número, Cidade, Estado
-- **Botões de Ação**: Limpar (reset) e Salvar
-- **Navegação**: Link "Início" para voltar à página inicial
+PowerShell (na raiz do repositório):
+```powershell
+cd 'C:\Users\limaj\Desktop\landing page'
+.
+\scripts\start-dev.ps1
+```
 
-## 🎨 Estrutura CSS Modular
+Comandos manuais (alternativa):
 
-Os estilos estão organizados em:
+Servidor estático (servir `scr/`):
+```powershell
+cd 'C:\Users\limaj\Desktop\landing page\scr'
+python -m http.server 8000
+# Acessar: http://localhost:8000/index.html
+```
 
-- **base/** - Variáveis e reset global
-- **components/** - Componentes reutilizáveis (button, input, card, form)
-- **layouts/** - Layouts e estruturas (header, grid)
+Backend (FastAPI) — se desejar executar localmente:
+```powershell
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8001
+# Acessar: http://localhost:8001/docs
+```
 
-Veja `README_CSS.md` para mais detalhes.
+Frontend (Vite) — se desejar executar localmente:
+```powershell
+cd frontend
+npm install
+npm run dev
+# Acessar: http://localhost:5173
+```
 
-## 💻 JavaScript (Sem Dependências)
+Docker (opcional):
+```powershell
+docker compose up --build
+# Serviços: static http://localhost:8000, backend http://localhost:8001, frontend http://localhost:5173
+```
 
-O arquivo `scr/js/main.js` implementa:
+## Como reverter exclusões (Git)
 
-- Submissão de formulários (com console.log + alert)
-- Reset de formulários via botão "Limpar"
-- Scroll suave com botão "Ir ao formulário"
-- Visibilidade dinâmica de cards (seletor Pessoa/Empresa)
-- Todos os event listeners ligados via `DOMContentLoaded`
+Se quiser restaurar arquivos removidos antes de fazer push, use:
+```powershell
+git restore --staged --worktree <paths>
+# ou para reverter o commit que removeu arquivos:
+git revert <commit_hash>
+```
 
-**Sem atributos inline**: `onsubmit`, `onclick` foram removidos e substituídos por listeners JavaScript.
+Se já cometeu as remoções e precisa reverter tudo para um commit anterior (cuidado: isto pode descartar commits posteriores):
+```powershell
+git reset --hard <commit_hash_before_changes>
+```
 
-## 📱 Responsividade
+## Testes rápidos após limpeza
 
-A página é responsiva para:
-- Desktop (880px+)
-- Tablet (480px - 880px)
-- Mobile (até 480px)
+- Abra `http://localhost:8000/index.html` e `http://localhost:8000/assents/index.html` para verificar o site estático.
+- Teste envio de formulários usando o frontend ou via `curl` apontando para `http://localhost:8001/api/submit` (se backend ativo).
 
-## 🔄 Histórico de Mudanças
+## Próximos passos sugeridos
 
-1. ✅ Separação de HTML/CSS/JS (sem inline handlers)
-2. ✅ Seletor de tipo (Pessoa/Empresa/Ambos)
-3. ✅ Página inicial com navegação
-4. ✅ Organização CSS modular
-5. ✅ Remoção de `styles.css` legado
-
-## 📝 Próximos Passos (Sugestões)
-
-- Integrar envio via fetch (POST para backend)
-- Adicionar validação de formulário
-- Salvar dados no localStorage
-- Adicionar animações com CSS
-- Criar temas (dark mode)
-- Adicionar testes automatizados
+- Executar auditoria de acessibilidade (Lighthouse / axe) localmente (requer Node + Chrome).
+- Opcional: compilar frontend para produção e ajustar Dockerfile para servir arquivos estáticos de forma eficiente.
 
 ---
 
-**Criado em**: 12 de novembro de 2025  
-**Status**: ✅ Funcional e otimizado
+**Última atualização**: 19 de novembro de 2025
