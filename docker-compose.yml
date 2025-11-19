@@ -1,36 +1,41 @@
 version: '3.8'
 
+version: '3.8'
+
 services:
   backend:
     build: ./backend
-    volumes:
-      - ./backend:/app
     ports:
       - "8001:8001"
     environment:
       - PYTHONUNBUFFERED=1
 
   frontend:
-    build: ./frontend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
+    build:
+      context: ./frontend
     ports:
-      - "5173:5173"
+      - "5173:80" # mapear porta 80 do container (nginx) para 5173 do host
     environment:
-      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=production
 
   static:
     image: python:3.11-slim
     volumes:
-      - ./scr:/srv/app
+      - ./scr:/srv/app:ro
     working_dir: /srv/app
     command: python -m http.server 8000
     ports:
       - "8000:8000"
 
-# Usage:
-# docker-compose up --build
-# Backend: http://localhost:8001
-# Frontend (Vite): http://localhost:5173
-# Static site: http://localhost:8000/scr/index.html
+# Usage (produção simples):
+# 1) Build e subir containers:
+#    docker compose up --build
+# 2) Acessos:
+#    Backend: http://localhost:8001
+#    Frontend (nginx): http://localhost:5173
+#    Static site: http://localhost:8000/scr/index.html
+
+# Nota: este compose configura um frontend de produção que serve os arquivos
+# gerados em `frontend/dist` via Nginx. Para desenvolvimento com hot-reload,
+# continue usando `npm run dev` localmente ou adapte o compose para executar
+# o dev server do Vite (não recomendado em produção).
